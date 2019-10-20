@@ -1,38 +1,36 @@
-<h1>Burgers!</h1>
+<h1 class="text-center mt-3">Eat-Da-Burger</h1>
 
-<h2>Burgers to eat!</h2>
+<img src="assets/img/burger.jpg" alt="burger" class="burger-img img-fluid mx-auto d-block mt-3">
 
-<ul>
-  {{#each burgers}}
-    {{#unless eat}}
-      {{> burgers/burger-block eat=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<h2 class="text-center mt-3">Choose a burger and devour it!</h2>
 
-<h2>Burgers to eat!</h2>
+<div class="burger-list-headers mt-3 d-flex justify-content-around">
+    <h3>Yum!</h3>
+    <h3>Gone!</h3>
+</div>
 
-<ul>
-  {{#each burgers}}
-    {{#if eat}}
-      {{> burgers/burger-block eat=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+<div class="mt-2 d-flex burger-list-container justify-content-around">
+    <ul class="burger-list ready-to-eat">
+        {{#each burger}}
+            {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+            {{/unless}}
+        {{/each}}
+    </ul>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+    <ul class="burger-list devoured-burgers">
+        {{#each burger}}
+            {{#if devoured}} 
+                {{> burgers/burger-block devoured=false}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
 
+<form class="d-flex justify-content-center create-burger-form col-md-6 mt-3">
   <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <label for="burgersubmit">Add a burger</label>
+    <input type="text" name="name" class="form-control" id="addburger">
+    <button type="submit" class="btn btn-success create-burger mt-3">Submit</button>
   </div>
-
-  <div class="form-group">
-    <label for="eat">Eat?</label><br>
-    <input type="radio" name="eat" value="1" checked> Eat!<br>
-    <input type="radio" name="eat" value="0"> Do not eat
-  </div>
-
-  <button type="submit">Add Burger</button>
 </form>

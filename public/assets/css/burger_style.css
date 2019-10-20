@@ -1,19 +1,29 @@
-li {
-    padding: 5px;
-    margin: 5px;
-    background: #faebd7;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: aqua;
-  }
-  
-  .form-group {
-    margin-bottom: 5px;
-  }
+* {
+  box-sizing: border-box;
+
+}
+
+
+
+.burger-img {
+  width: 200px;
+  height: 200px;
+}
+
+.burger-list {
+  font-size: 22px;
+  border: 2px groove black;
+}
+
+.burger-list-container {
+  padding: 20px;
+}
+
+label {
+  font-size: 32px;
+}
+
+.devoured-burgers {
+  color: aqua;
+  text-decoration-line: line-through;
+}
